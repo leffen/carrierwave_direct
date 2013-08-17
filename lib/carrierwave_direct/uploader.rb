@@ -68,6 +68,7 @@ module CarrierWaveDirect
         ["starts-with", "$key", key.sub(/#{Regexp.escape(FILENAME_WILDCARD)}\z/, "")]
       ]
       conditions << ["starts-with", "$Content-Type", ""] if self.class.will_include_content_type
+      conditions << ["starts-with", "$Cache-Control", ""]
       conditions << {"bucket" => fog_directory}
       conditions << {"acl" => acl}
 
